@@ -4,6 +4,7 @@
 Program::Program() { isTurnedOn = true; }
 
 void Program::mainLoop(){
+	scene.tile[5][5].setType(TILE_WALL, 100); // 
 	while (isTurnedOn){
 		scene.draw();
 		Sleep(10); //
