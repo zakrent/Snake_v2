@@ -1,12 +1,14 @@
 #include "Program.h"
+#include <windows.h> //
 
 Program::Program() { isTurnedOn = true; }
 
 void Program::mainLoop(){
-	//while (isTurnedOn){
+	while (isTurnedOn){
 		scene.draw();
-		int x;
-		std::cin >> x;
-	//}
+		Sleep(10); //
+		system("cls"); //DEBUGGING PLACEHOLDERS DON'T WORRY
+		scene.update();
+	}
 }
 
