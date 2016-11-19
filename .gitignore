@@ -243,6 +243,7 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
-
+#lib
 src/lib/*
 src/include/*
+*.lib
