@@ -1,14 +1,14 @@
 #pragma once
-#include <iostream> //PLACEHOLDER REMEMBER TO REMOVE
-#define TILE_VOID 0 //Tile ids
+#include "curses.h"
+#define TILE_VOID 0 //Tile IDs
 #define TILE_WALL 1
 
 class Tile {
 private:
 	int type, life;
 public:
-	Tile(int = 0, int = 0xFF);
-	void setType(int, int = 0xFF);
-	void calcLife();
-	void draw();
+	Tile(int = 0, int = 0xFFFFF);
+	void setType(int, int = 0xFFFFF);
+	void calcLife(int, int);
+	void draw(int, int);
 };

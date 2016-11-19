@@ -1,15 +1,19 @@
 #include "Program.h"
-#include <windows.h> //
+#include <iostream>
 
-Program::Program() { isTurnedOn = true; }
+Program::Program() { this->isTurnedOn = true; }
 
 void Program::mainLoop(){
-	scene.tile[5][5].setType(TILE_WALL, 100); // 
-	while (isTurnedOn){
-		scene.draw();
-		Sleep(10); //
-		system("cls"); //DEBUGGING PLACEHOLDERS DON'T WORRY
+	scene.tile[5][5].setType(TILE_WALL, 10000); 
+	initscr();
+	start_color();
+	curs_set(0);
+	scene.draw();
+	while (this->isTurnedOn){
+		refresh();
 		scene.update();
 	}
+	endwin();
 }
+
 
