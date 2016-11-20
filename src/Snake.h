@@ -1,11 +1,13 @@
 #pragma once
-#include "Program.cpp"
+#include "Map.h"
 
 class Snake {
 private:
 	int x, y, direction, lenght;
 public:
-	Snake(int x, int y);
+	Snake();
+	Snake(int, int );
+
 	void draw(Map &scene);
 	void changeDirection(int);
 	void addLenght(int);

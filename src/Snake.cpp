@@ -1,9 +1,11 @@
 #include "Snake.h"
-#include "Map.h"
+#include <iostream>//
 
-Snake::Snake(int x, int y) { this->x = x; this->y = y; this->direction = 0; }
+Snake::Snake(){1 == 1;}
 
-void Snake::draw(Map &scene) { scene.tile[this->x][this->y].setType(TILE_SNAKE, this->lenght); }
+Snake::Snake(int x, int y) { this->x = x; this->y = y; this->direction = 0; this->lenght = 1; }
+
+void Snake::draw(Map &scene) { scene.tile[this->x][this->y].setType(TILE_SNAKE, this->lenght); scene.tile[this->x][this->y].draw(this->x, this->y); }
 
 void Snake::changeDirection(int) { this->direction = direction; }
 

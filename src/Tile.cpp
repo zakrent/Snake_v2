@@ -16,6 +16,7 @@ void Tile::calcLife(int x, int y){ //subtracts life every iteration and if life 
 void Tile::draw(int x,int y){ //Displays 
 	init_pair(1, COLOR_WHITE, COLOR_BLACK);
 	init_pair(2, COLOR_GREEN, COLOR_BLACK);
+	init_pair(3, COLOR_BLUE, COLOR_BLACK);
 	switch (this->type)
 	{
 	case TILE_VOID:
@@ -25,6 +26,10 @@ void Tile::draw(int x,int y){ //Displays
 	case TILE_WALL:
 		attron(COLOR_PAIR(2));
 		mvprintw(x, y, "#");
+		break;
+	case TILE_SNAKE:
+		attron(COLOR_PAIR(3));
+		mvprintw(x, y, "O");
 		break;
 	}
 }

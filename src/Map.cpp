@@ -1,4 +1,3 @@
-#include <iostream> //PLACEHOLDER REMEMBER TO REMOVE
 #include "Map.h"
 
 Map::Map(){
