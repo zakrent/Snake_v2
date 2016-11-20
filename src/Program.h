@@ -1,6 +1,7 @@
 #pragma once
 #include <time.h>
 #include "Map.h"
+#include "Snake.h"
 
 class Program {
 

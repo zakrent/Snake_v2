@@ -28,3 +28,20 @@ void Tile::draw(int x,int y){ //Displays
 		break;
 	}
 }
+
+bool Tile::isSolid()
+{
+	switch (this->type)
+	{
+	case TILE_VOID:
+		return false;
+		break;
+	case TILE_WALL:
+		return true;
+		break;
+	case TILE_SNAKE:
+		return false;
+		break;
+	}
+	return false;
+}

@@ -2,6 +2,7 @@
 #include "curses.h"
 #define TILE_VOID 0 //Tile IDs
 #define TILE_WALL 1
+#define TILE_SNAKE 2
 
 class Tile {
 private:
@@ -12,4 +13,5 @@ public:
 	void setType(int, int = 0xFFFFF);
 	void calcLife(int, int);
 	void draw(int, int);
+	bool isSolid();
 };
