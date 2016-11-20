@@ -1,19 +1,20 @@
 #include "Program.h"
 #include <iostream>
 
-Program::Program() { this->isTurnedOn = true; }
+Program::Program() { this->isTurnedOn = true; initscr(); start_color(); curs_set(0);}
 
-void Program::mainLoop(){
-	scene.tile[5][5].setType(TILE_WALL, 10000); 
-	initscr();
-	start_color();
-	curs_set(0);
+Program::~Program() { endwin(); }
+
+void Program::mainLoop() {
+	scene.tile[5][5].setType(TILE_WALL, 3); //
 	scene.draw();
-	while (this->isTurnedOn){
-		refresh();
-		scene.update();
+	while (this->isTurnedOn) {
+		time = clock();
+		time -= prevTime;
+		if (time > 1*CLOCKS_PER_SEC) {
+			refresh();
+			scene.update();
+			prevTime = clock();
+		}
 	}
-	endwin();
 }
-
-
