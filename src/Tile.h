@@ -5,8 +5,9 @@
 
 class Tile {
 private:
-	int type, life;
+	
 public:
+	int type, life;//
 	Tile(int = 0, int = 0xFFFFF);
 	void setType(int, int = 0xFFFFF);
 	void calcLife(int, int);
