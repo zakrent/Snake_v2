@@ -1,7 +1,7 @@
 #pragma once
 #include "Tile.h"
-#define MAP_WIDTH 25
-#define MAP_HEIGHT 50
+#define MAP_WIDTH 50
+#define MAP_HEIGHT 25
 
 
 class Map {

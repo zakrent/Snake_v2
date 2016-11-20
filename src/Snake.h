@@ -11,5 +11,5 @@ public:
 	void draw(Map &scene);
 	void changeDirection(int);
 	void addLenght(int);
-	void update(Map &scenc);
+	bool update(Map &scenc);
 };

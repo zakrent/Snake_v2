@@ -21,15 +21,15 @@ void Tile::draw(int x,int y){ //Displays
 	{
 	case TILE_VOID:
 		attron(COLOR_PAIR(1));
-		mvprintw(x, y, "-");
+		mvprintw(y, x, "-");
 		break;
 	case TILE_WALL:
 		attron(COLOR_PAIR(2));
-		mvprintw(x, y, "#");
+		mvprintw(y, x, "#");
 		break;
 	case TILE_SNAKE:
 		attron(COLOR_PAIR(3));
-		mvprintw(x, y, "O");
+		mvprintw(y, x, "O");
 		break;
 	}
 }
