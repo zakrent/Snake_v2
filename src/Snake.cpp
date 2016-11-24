@@ -2,14 +2,34 @@
 
 Snake::Snake(){1 == 1;}
 
-Snake::Snake(int x, int y) { this->x = x; this->y = y; this->direction = 1; this->lenght = 1; }
+Snake::Snake(int x, int y) { this->x = x; this->y = y; this->direction = 0; this->lenght = 1; }
 
 void Snake::draw(Map &scene) { scene.tile[this->x][this->y].setType(TILE_SNAKE, this->lenght); scene.tile[this->x][this->y].draw(this->x, this->y); }
 
 void Snake::changeDirection(int) { this->direction = direction; }
 
+void Snake::updateDirection(){
+	int key = getch();
+	switch (key)
+	{
+	case 115:
+		this->direction = 0;
+		break;
+	case 119:
+		this->direction = 2;
+		break;
+	case 100:
+		this->direction = 1;
+		break;
+	case 97:
+		this->direction = 3;
+		break;
+	default:
+		break;
+	}
+}
+
 bool Snake::update(Map &scene, Food &food){
-	
 	switch (this->direction)
 	{
 	case 0:
@@ -28,7 +48,7 @@ bool Snake::update(Map &scene, Food &food){
 		else { return false; }
 		break;
 	case 3:
-		if (scene.tile[this->x + 1][this->y].type == TILE_FOOD) { this->lenght++;}
+		if (scene.tile[this->x - 1][this->y].type == TILE_FOOD) { this->lenght++;}
 		if (!scene.tile[this->x - 1][this->y].isSolid()) { this->x--; return true; }
 		else { return false; }
 		break;

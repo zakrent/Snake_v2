@@ -11,5 +11,6 @@ public:
 
 	void draw(Map &scene);
 	void changeDirection(int);
+	void updateDirection();
 	bool update(Map &scenc, Food &food);
 };

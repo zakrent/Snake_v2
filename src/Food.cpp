@@ -15,7 +15,6 @@ void Food::check(Map &scene){
 		this->x = wid(rng);
 		this->y = hei(rng);
 		scene.tile[this->x][this->y].setType(TILE_FOOD);
+		scene.tile[this->x][this->y].draw(this->x, this->y);
 	}
-	scene.tile[this->x][this->y].draw(this->x, this->y);
-	
 }

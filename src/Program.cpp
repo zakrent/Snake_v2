@@ -5,7 +5,9 @@ Program::Program() {
 	initscr(); 
 	start_color(); 
 	curs_set(0); 
+	noecho();
 	player = Snake(10, 8); 
+	timeout(100);
 }
 Program::~Program() { endwin(); }
 
@@ -22,6 +24,9 @@ void Program::mainLoop() {
 			food.check(scene);
 			refresh();
 			prevTime = clock();
+		}
+		else {
+			player.updateDirection();
 		}
 	}
 }
