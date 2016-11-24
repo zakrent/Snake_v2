@@ -9,26 +9,30 @@ void Snake::draw(Map &scene) { scene.tile[this->x][this->y].setType(TILE_SNAKE, 
 void Snake::changeDirection(int) { this->direction = direction; }
 
 bool Snake::update(Map &scene, Food &food){
+	
 	switch (this->direction)
 	{
 	case 0:
+		if (scene.tile[this->x][this->y + 1].type == TILE_FOOD) { this->lenght++;}
 		if (!scene.tile[this->x][this->y + 1].isSolid()) { this->y++; return true; }
 		else { return false; }
 		break;
 	case 1:
+		if (scene.tile[this->x + 1][this->y].type == TILE_FOOD) { this->lenght++;}
 		if (!scene.tile[this->x + 1][this->y].isSolid()) { this->x++; return true; }
 		else { return false; }
 		break;
 	case 2:
+		if (scene.tile[this->x][this->y - 1].type == TILE_FOOD) { this->lenght++;}
 		if (!scene.tile[this->x][this->y - 1].isSolid()) { this->y--; return true; } 
 		else { return false; }
 		break;
 	case 3:
-		if (!scene.tile[this->x + 1][this->y].isSolid()) { this->x--; return true; }
+		if (scene.tile[this->x + 1][this->y].type == TILE_FOOD) { this->lenght++;}
+		if (!scene.tile[this->x - 1][this->y].isSolid()) { this->x--; return true; }
 		else { return false; }
 		break;
 	}
-	if (scene.tile[this->x][this->y].type == TILE_FOOD) {this->lenght++;}
 }
 
 
