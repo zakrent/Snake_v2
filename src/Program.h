@@ -14,6 +14,7 @@ private:
 	clock_t prevTime;
 	clock_t time;
 	Snake player;
+	Food food;
 public:
 	Program();
 	~Program();

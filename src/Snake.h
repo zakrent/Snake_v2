@@ -1,5 +1,6 @@
 #pragma once
 #include "Map.h"
+#include "Food.h"
 
 class Snake {
 private:
@@ -10,6 +11,5 @@ public:
 
 	void draw(Map &scene);
 	void changeDirection(int);
-	void addLenght(int);
-	bool update(Map &scenc);
+	bool update(Map &scenc, Food &food);
 };

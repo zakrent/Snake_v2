@@ -1,5 +1,5 @@
 #include "Snake.h"
-#include <iostream>//
+#include <iostream>
 
 Snake::Snake(){1 == 1;}
 
@@ -9,9 +9,7 @@ void Snake::draw(Map &scene) { scene.tile[this->x][this->y].setType(TILE_SNAKE, 
 
 void Snake::changeDirection(int) { this->direction = direction; }
 
-void Snake::addLenght(int) { this->lenght++; }
-
-bool Snake::update(Map &scene){
+bool Snake::update(Map &scene, Food &food){
 	switch (this->direction)
 	{
 	case 0:
@@ -31,6 +29,7 @@ bool Snake::update(Map &scene){
 		else { return false; }
 		break;
 	}
+	if (scene.tile[this->x][this->y].type == TILE_FOOD) {this->lenght++;}
 }
 
 

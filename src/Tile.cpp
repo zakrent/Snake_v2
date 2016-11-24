@@ -31,6 +31,10 @@ void Tile::draw(int x,int y){ //Displays
 		attron(COLOR_PAIR(3));
 		mvprintw(y, x, "O");
 		break;
+	case TILE_FOOD:
+		attron(COLOR_PAIR(2));
+		mvprintw(y, x, "G");
+		break;
 	}
 }
 
@@ -45,6 +49,9 @@ bool Tile::isSolid()
 		return true;
 		break;
 	case TILE_SNAKE:
+		return false;
+		break;
+	case TILE_FOOD:
 		return false;
 		break;
 	}

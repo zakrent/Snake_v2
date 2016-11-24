@@ -3,10 +3,9 @@
 #define TILE_VOID 0 //Tile IDs
 #define TILE_WALL 1
 #define TILE_SNAKE 2
+#define TILE_FOOD 3
 
 class Tile {
-private:
-	
 public:
 	int type, life;//
 	Tile(int = 0, int = 0xFFFFF);

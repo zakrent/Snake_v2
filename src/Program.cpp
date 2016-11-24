@@ -1,6 +1,12 @@
 #include "Program.h"
 
-Program::Program() { isTurnedOn = true; initscr(); start_color(); curs_set(0); player = Snake(30, 1); }
+Program::Program() { 
+	isTurnedOn = true; 
+	initscr(); 
+	start_color(); 
+	curs_set(0); 
+	player = Snake(10, 8); 
+}
 Program::~Program() { endwin(); }
 
 void Program::mainLoop() {
@@ -10,9 +16,10 @@ void Program::mainLoop() {
 		time = clock();
 		time -= prevTime;
 		if (time > 0.3*CLOCKS_PER_SEC) {
-			if (!player.update(scene)) { isTurnedOn = false; }
+			if (!player.update(scene, food)) { isTurnedOn = false; }
 			scene.update();
 			player.draw(scene);
+			food.check(scene);
 			refresh();
 			prevTime = clock();
 		}
