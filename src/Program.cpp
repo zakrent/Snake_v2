@@ -3,11 +3,12 @@
 Program::Program() { 
 	isTurnedOn = true; 
 	initscr(); 
-	start_color(); 
+	if (has_colors) { start_color(); }
 	curs_set(0); 
+	resize_term(MAP_HEIGHT, MAP_WIDTH);
 	noecho();
 	player = Snake(10, 8); 
-	timeout(100);
+	timeout(50);
 }
 Program::~Program() { endwin(); }
 
@@ -17,15 +18,14 @@ void Program::mainLoop() {
 	while (this->isTurnedOn) {
 		time = clock();
 		time -= prevTime;
-		if (time > 0.3*CLOCKS_PER_SEC) {
+		if (time > 0.1*CLOCKS_PER_SEC) {
 			if (!player.update(scene, food)) { isTurnedOn = false; }
 			scene.update();
 			player.draw(scene);
 			food.check(scene);
 			refresh();
 			prevTime = clock();
-		}
-		else {
+			score = player.lenght*100;
 			player.updateDirection();
 		}
 	}
@@ -34,7 +34,8 @@ void Program::mainLoop() {
 void Program::endGame(){
 	clear();
 	attron(COLOR_PAIR(1));
-	printw("You've lost!");
+	printw("You've lost!\n");
+	printw("Your score is: %d", score);
 	refresh();
 	time = clock() + 5 * CLOCKS_PER_SEC;
 	while(clock()<time){}

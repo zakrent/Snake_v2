@@ -1,6 +1,5 @@
 #pragma once
 #include <time.h>
-#include <iostream>//
 #include "curses.h"
 #include "Tile.h"
 #include "Map.h"
@@ -9,6 +8,7 @@
 class Program {
 
 private:
+	int score;
 	Map scene;
 	bool isTurnedOn;
 	clock_t prevTime;

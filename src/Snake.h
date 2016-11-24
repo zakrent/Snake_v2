@@ -4,8 +4,9 @@
 
 class Snake {
 private:
-	int x, y, direction, lenght;
+	int x, y, direction;
 public:
+	int lenght;
 	Snake();
 	Snake(int, int );
 

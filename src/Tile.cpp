@@ -17,6 +17,7 @@ void Tile::draw(int x,int y){ //Displays
 	init_pair(1, COLOR_WHITE, COLOR_BLACK);
 	init_pair(2, COLOR_GREEN, COLOR_BLACK);
 	init_pair(3, COLOR_BLUE, COLOR_BLACK);
+	init_pair(4, COLOR_YELLOW, COLOR_BLACK);
 	switch (this->type)
 	{
 	case TILE_VOID:
@@ -32,7 +33,7 @@ void Tile::draw(int x,int y){ //Displays
 		mvprintw(y, x, "O");
 		break;
 	case TILE_FOOD:
-		attron(COLOR_PAIR(2));
+		attron(COLOR_PAIR(4));
 		mvprintw(y, x, "G");
 		break;
 	}
@@ -49,7 +50,7 @@ bool Tile::isSolid()
 		return true;
 		break;
 	case TILE_SNAKE:
-		return false;
+		return true;
 		break;
 	case TILE_FOOD:
 		return false;

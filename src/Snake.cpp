@@ -1,4 +1,5 @@
 #include "Snake.h"
+//#include <iostream>
 
 Snake::Snake(){1 == 1;}
 
@@ -10,19 +11,20 @@ void Snake::changeDirection(int) { this->direction = direction; }
 
 void Snake::updateDirection(){
 	int key = getch();
+	//std::cout << key;
 	switch (key)
 	{
-	case 115:
-		this->direction = 0;
+	case 115: // S
+		if (direction != 2) { this->direction = 0; }
 		break;
-	case 119:
-		this->direction = 2;
+	case 119: // W
+		if (direction != 0) { this->direction = 2; }
 		break;
-	case 100:
-		this->direction = 1;
+	case 100: // D
+		if (direction != 3) { this->direction = 1; }
 		break;
-	case 97:
-		this->direction = 3;
+	case 97: // A
+		if (direction != 1) { this->direction = 3; }
 		break;
 	default:
 		break;
