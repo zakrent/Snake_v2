@@ -5,7 +5,7 @@ Program::Program() {
 	initscr(); 
 	if (has_colors) { start_color(); }
 	curs_set(0); 
-	resize_term(MAP_HEIGHT, MAP_WIDTH);
+	resize_term(MAP_HEIGHT+1, MAP_WIDTH);
 	noecho();
 	player = Snake(10, 8); 
 	timeout(50);
@@ -25,8 +25,11 @@ void Program::mainLoop() {
 			food.check(scene);
 			refresh();
 			prevTime = clock();
-			score = player.lenght*100;
 			player.updateDirection();
+			//score calc and diplay
+			score = player.lenght * 100;
+			attron(COLOR_PAIR(4));
+			mvprintw(MAP_HEIGHT, 0, "Your score is: %d", score);
 		}
 	}
 }
