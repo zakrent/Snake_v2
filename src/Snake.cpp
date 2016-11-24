@@ -1,5 +1,4 @@
 #include "Snake.h"
-#include <iostream>
 
 Snake::Snake(){1 == 1;}
 
