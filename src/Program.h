@@ -1,6 +1,6 @@
 #pragma once
 #include <time.h>
-#include "curses.h"
+#include <curses.h>
 #include "Tile.h"
 #include "Map.h"
 #include "Snake.h"

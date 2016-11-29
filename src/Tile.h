@@ -1,5 +1,5 @@
 #pragma once
-#include "curses.h"
+#include <curses.h>
 #define TILE_VOID 0 //Tile IDs
 #define TILE_WALL 1
 #define TILE_SNAKE 2
